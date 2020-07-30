@@ -1,11 +1,21 @@
 <h3>Post Form</h3>
 
-<%= form_tag post_path(@post), method: "put" do %>
+<%= form_for(@post) do |f| %>
   <label>Post title:</label><br>
-  <%= text_field_tag :title, @post.title %><br>
+  <%= f.text_field :title %><br>
 
-  <label>Post Description</label><br>
-  <%= text_area_tag :description, @post.description %><br>
-  
-  <%= submit_tag "Submit Post" %>
+  <label>Post description</label><br>
+  <%= f.text_area :description %><br>
+
+  <%= f.submit %> <!-- submit button --> 
 <% end %>
+
+
+<!-- The form_for method accepts the instance of the model as an argument
+form_for yields an object of class FormBuilder
+form_for automatically knows the standard route-RESTFUL- for the form data as opposed to having to manually declare it
+form_for gives the option to dynamically change the submit button text
+connected to model directly
+html form generated -> search form field or contact form
+The |f| is an iterator variable that we can use on the new form object that will allow us to dynamically assign form field elements to each of the @post's data attributes, along with auto filling the values for each field. We get this ActionView functionality because we're using the form_for method, which gives us access to the FormBuilder module in Rails.
+j
