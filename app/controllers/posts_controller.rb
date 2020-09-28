@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
 	def index
 		@posts = Post.all
@@ -13,8 +14,8 @@ class PostsController < ApplicationController
 
 	def create
 	  @post = Post.new
-	  @post.title = params[:title]
-	  @post.description = params[:description]
+	  @post.title=params[:title]
+	  @post.description=params[:description]
 	  @post.save
 	  redirect_to post_path(@post)
 	end
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-	  @post.update(title: params[:title], description: params[:description])
+	  @post.update(params.require(:post).permit(:title, :description))
 	  redirect_to post_path(@post)
 	end
 end
