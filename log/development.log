@@ -761,3 +761,129 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-10-03 16:14:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (5.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/mark/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/mark/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (93.9ms)
+Completed 200 OK in 471ms (Views: 235.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-10-03 16:14:56 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (299.2ms)
+Completed 200 OK in 5586ms (Views: 5292.2ms | ActiveRecord: 18.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-10-03 16:16:00 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JdUOLBHOPL1Qvc9d6gaCyY3NC43cfKmo6PLENY9wo4CvXBwNI71EU90tzeYR0byJNmXYk7Ekkx/e/RZTG0YHpA==", "post"=>{"title"=>"My Magnificent Post!", "description"=>"A journey through the annals of Flatiron School Student"}, "commit"=>"Create Post"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (18.5ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2020-10-03 20:16:00.729886"], ["updated_at", "2020-10-03 20:16:00.729886"]]
+  [1m[35m (105.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 145ms (ActiveRecord: 123.9ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2020-10-03 16:16:00 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (5.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1116ms (Views: 896.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-10-03 16:16:17 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (4.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 1029ms (Views: 856.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-10-03 16:16:53 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 1304ms (Views: 1114.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2020-10-03 16:17:29 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 1055ms (Views: 886.0ms | ActiveRecord: 4.1ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2020-10-03 16:17:54 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M/6m4ZfrLAlQieYEocLfsdE5dvJR3rYBJZ0iBqa0H+G5d7TApZhU590Z5L9aFeHxapGl7DyGjLYTkvBgMoK7xQ==", "post"=>{"title"=>"Rails Introduction Quiz Par 2", "description"=>"why?"}, "commit"=>"Update Post", "id"=>"1"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/posts_controller.rb:27:in `update'
+  Rendering /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (23.7ms)
+  Rendering /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.0ms)
+  Rendering /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /home/mark/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.6ms)
+Started PATCH "/posts/1" for 127.0.0.1 at 2020-10-03 16:19:27 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M/6m4ZfrLAlQieYEocLfsdE5dvJR3rYBJZ0iBqa0H+G5d7TApZhU590Z5L9aFeHxapGl7DyGjLYTkvBgMoK7xQ==", "post"=>{"title"=>"Rails Introduction Quiz Par 2", "description"=>"why?"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (3.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (16.3ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "Rails Introduction Quiz Par 2"], ["description", "why?"], ["updated_at", "2020-10-03 20:19:28.230764"], ["id", 1]]
+  [1m[35m (138.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 327ms (ActiveRecord: 181.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2020-10-03 16:19:28 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (5.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1043ms (Views: 875.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2020-10-03 16:19:35 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (6.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 1132ms (Views: 965.2ms | ActiveRecord: 6.7ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2020-10-03 16:19:49 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vxQihL54fD4TUxUZu2Yt9hM5x9zVzBGw3V0naR6GBPY1nTCljAsE0J7DF6JAsRO2qJEUwriUKwfrUvUPirCg0g==", "post"=>{"title"=>"Rails Introduction Quiz Par 2", "description"=>"why not?"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (5.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (21.0ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "why not?"], ["updated_at", "2020-10-03 20:19:49.321311"], ["id", 1]]
+  [1m[35m (128.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 177ms (ActiveRecord: 156.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2020-10-03 16:19:49 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (7.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1069ms (Views: 897.2ms | ActiveRecord: 7.2ms)
+
+
