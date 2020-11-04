@@ -25,7 +25,9 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-	  @post.update(title: params[:title], description: params[:description])
+		@post.update(params.require(:post).permit(:title, :description))
+		#title and description attributes now nested within the post hash^ 
+		#important to add 'require' and 'permit' so Rails knows which attributes are allowed to be updated in database
 	  redirect_to post_path(@post)
 	end
 end
