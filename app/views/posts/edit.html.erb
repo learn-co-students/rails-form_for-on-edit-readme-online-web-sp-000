@@ -1,11 +1,11 @@
 <h3>Post Form</h3>
 
-<%= form_tag post_path(@post), method: "put" do %>
+<%= form_for(@post) do |post_form| %>
   <label>Post title:</label><br>
-  <%= text_field_tag :title, @post.title %><br>
+  <%= post_form.text_field :title %><br>
 
   <label>Post Description</label><br>
-  <%= text_area_tag :description, @post.description %><br>
+  <%= post_form.text_field :description %><br>
   
-  <%= submit_tag "Submit Post" %>
+  <%= post_form.submit %>
 <% end %>
