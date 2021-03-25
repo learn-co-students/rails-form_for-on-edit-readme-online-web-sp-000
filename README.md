@@ -148,3 +148,14 @@ If you go back to the `edit` page and submit the form, the record will be update
 ## Summary
 
 Nice work! You now know how to integrate multiple form helpers into a Rails application, and you should have a good idea on when to properly use `form_for` vs. `form_tag`.
+
+
+<%= form_tag posts_path do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %>
