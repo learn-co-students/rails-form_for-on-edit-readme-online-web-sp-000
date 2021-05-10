@@ -1,0 +1,11 @@
+<h3>Post Form</h3>
+
+<%= form_for @post do |f| %>
+  <%= f.label 'Post Title:'%>
+  <%= f.text_field :title %>
+
+  <%= f.label 'Post Description' %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "#{@post.new_record? ? 'Submit' : 'Update'} Post" %>
+<% end %>
